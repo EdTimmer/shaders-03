@@ -32,7 +32,7 @@ export default class SphereTwo {
 
   setGeometry() {
     // this.geometry = new THREE.PlaneGeometry(50, 50, 32, 32);
-    this.geometry = new THREE.SphereGeometry(35, 32, 32);
+    this.geometry = new THREE.SphereGeometry(37.5, 32, 32);
     // this.geometry = new THREE.BoxGeometry(100, 50, 50, 32, 32, 32);
     // this.geometry = new THREE.TorusGeometry(26, 10, 16, 100);
     // this.geometry = new THREE.IcosahedronGeometry(50, 0);
@@ -40,8 +40,8 @@ export default class SphereTwo {
 
   setMesh() {
     this.mesh = new THREE.Mesh(this.geometry, this.material);
-    // rotate on Y axis half circle
-    this.mesh.rotation.set(Math.PI * 2.5, Math.PI * 1.5, 0);
+    this.mesh.rotateX(Math.PI * 2.5);
+    this.mesh.rotateY(Math.PI * 0.5);
     this.mesh.position.set(0, 0, 0);
 
 
@@ -52,5 +52,8 @@ export default class SphereTwo {
 
   update() {    
     this.material.uniforms.u_Time.value = this.experience.time.getElapsedTime().toFixed(2);
+
+    this.mesh.rotation.x -= 0.001;
+    this.mesh.rotation.y -= 0.001;
   }
 }

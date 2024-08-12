@@ -40,7 +40,9 @@ export default class SphereOne {
   setMesh() {
     this.mesh = new THREE.Mesh(this.geometry, this.material);
     // rotate on Y axis half circle
-    this.mesh.rotation.set(Math.PI * 2.5, Math.PI * 1.5, 0);
+    // this.mesh.rotation.set(Math.PI * 2.5, 0, Math.PI * 1.0);
+    this.mesh.rotateX(Math.PI * 2.5);
+    this.mesh.rotateY(Math.PI * 0.5);
     this.mesh.position.set(0, 0, 0);
 
 

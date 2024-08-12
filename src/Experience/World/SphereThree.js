@@ -40,7 +40,8 @@ export default class SphereThree {
   setMesh() {
     this.mesh = new THREE.Mesh(this.geometry, this.material);
     // rotate on Y axis half circle
-    this.mesh.rotation.set(0, Math.PI * 2.5, 0);
+    this.mesh.rotateX(Math.PI * 2.5);
+    this.mesh.rotateY(Math.PI * 0.5);
     this.mesh.position.set(0, 0, 0);
 
 
@@ -51,5 +52,8 @@ export default class SphereThree {
 
   update() {    
     this.material.uniforms.u_Time.value = this.experience.time.getElapsedTime().toFixed(2);
+
+    this.mesh.rotation.x -= 0.001;
+    this.mesh.rotation.y -= 0.001;
   }
 }

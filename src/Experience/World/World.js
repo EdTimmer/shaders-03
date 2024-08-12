@@ -41,7 +41,7 @@ export default class World {
       this.environment = new Environment()
            
       // Pass engineGroup to the camera
-      this.camera.setTarget(this.surfaceOne.mesh)
+      this.camera.setTarget(this.sphereOne.mesh)
     })
   }
 
